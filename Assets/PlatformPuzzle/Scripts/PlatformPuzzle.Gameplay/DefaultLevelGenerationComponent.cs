@@ -82,7 +82,7 @@ namespace PlatformPuzzle.Gameplay
                 }
             }
 
-            Vector3 randomSpawnPosition = GetRandomSpawnPointFromPlatform(currentPivotPlatform);
+            Vector3 randomSpawnPosition = GetNewSpawnPointFromPlatform(currentPivotPlatform);
 
             GeneratePlatform(
                     randomSpawnPosition,
@@ -101,16 +101,23 @@ namespace PlatformPuzzle.Gameplay
             return randomPivotPlatform;
         }
 
-        private Vector3 GetRandomSpawnPointFromPlatform(PlatformMB platform)
+        private Vector3 GetNewSpawnPointFromPlatform(PlatformMB platform)
         {
+            Direction[] directionsArray = PlatformManager.DirectionsArray;
 
-            Transform[] possibleSpawnPoints = platform.GetAvailableSnapPoints()
-                .Select(x => x.ReferencePoint).ToArray();
+            for (int i = 0; i < directionsArray.Length; i++)
+            {
+                SnapPoint snapPoint = platform
+                    .GetSlotForDirection(directionsArray[i]).SnapPoint;
+                bool hasPlatformForDirection = snapPoint.Platform;
 
-            int randomSpawnPointIndex = UnityEngine.Random.Range(0, possibleSpawnPoints.Length);
-            Vector3 randomSpawnPosition = possibleSpawnPoints[randomSpawnPointIndex].position;
+                if (!hasPlatformForDirection)
+                {
+                    return snapPoint.ReferencePoint.position;
+                }
+            }
 
-            return randomSpawnPosition;
+            return Vector3.zero;
         }
 
         private void AttachExistingPlatforms(PlatformMB platform)

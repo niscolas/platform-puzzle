@@ -18,9 +18,27 @@ namespace PlatformPuzzle.Gameplay
                 {Direction.SouthEast, Direction.NorthWest},
             };
 
+        public static readonly Direction[] DirectionsArray =
+            new Direction[]
+        {
+            Direction.North,
+            Direction.NorthEast,
+            Direction.SouthEast,
+            Direction.South,
+            Direction.SouthWest,
+            Direction.NorthWest,
+        };
+
         public static Direction GetOppositeDirection(Direction direction)
         {
             Direction result = OppositeDirectionMap[direction];
+
+            return result;
+        }
+
+        public static Direction GetDirectionAtIndex(int index)
+        {
+            Direction result = DirectionsArray[index];
 
             return result;
         }
