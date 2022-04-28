@@ -35,16 +35,16 @@ jobs:
         with:
           customParameters: -assemblyNames "PlatformPuzzle.Gameplay.Tests.Editor"
 
-      - name: 🛠 Build!
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          allowDirtyBuild: true
-          targetPlatform: ${{ matrix.targetPlatform }}
+      # - name: 🛠 Build!
+      #   uses: game-ci/unity-builder@v2
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #   with:
+      #     allowDirtyBuild: true
+      #     targetPlatform: ${{ matrix.targetPlatform }}
 
-      - name: ☁ Upload build results
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
+      # - name: ☁ Upload build results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Build-${{ matrix.targetPlatform }}
+      #     path: build/${{ matrix.targetPlatform }}
