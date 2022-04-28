@@ -1,5 +1,62 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "2.3.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "com.inspiaaa.unityhfsm": {
+      "version": "1.8.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "com.middlemast.core": {
+      "version": "1.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "com.middlemast.gameplayframework": {
+      "version": "0.4.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.middlemast.core": "1.2.0"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.unity-atoms.unity-atoms-base-atoms": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.unity-atoms.unity-atoms-core": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "com.unity-atoms.unity-atoms-input-system": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.3",
+        "com.unity.inputsystem": "1.0.1"
+      },
+      "url": "https://registry.npmjs.org"
+    },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 1,
@@ -13,6 +70,15 @@
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.1.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
