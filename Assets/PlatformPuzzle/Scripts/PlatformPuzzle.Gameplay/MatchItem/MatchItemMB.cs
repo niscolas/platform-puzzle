@@ -1,5 +1,6 @@
 using MiddleMast.GameplayFramework;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlatformPuzzle.Gameplay
 {
@@ -11,11 +12,22 @@ namespace PlatformPuzzle.Gameplay
         [field: SerializeField]
         public bool IsEnabled { get; private set; }
 
+        [Header("Events")]
+        [SerializeField]
+        private UnityEvent _onMatch;
+
         public bool CompareWith(MatchItemMB other)
         {
             bool result = Type == other.Type;
 
             return result;
+        }
+
+        public void OnMatch()
+        {
+            IsEnabled = false;
+            _onMatch?.Invoke();
+            gameObject.SetActive(false);
         }
 
         public void SetEnabled(bool value)

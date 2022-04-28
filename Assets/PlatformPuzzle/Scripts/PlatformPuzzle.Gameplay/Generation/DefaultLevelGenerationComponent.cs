@@ -1,26 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlatformPuzzle.Gameplay
 {
-    [Serializable]
-    public class AngleRangeDirection
-    {
-        [field: SerializeField]
-        public Vector2 AngleRange { get; private set; }
-
-        [field: SerializeField]
-        public Direction Direction { get; private set; }
-    }
-
     internal class DefaultLevelGenerationComponent : MonoBehaviour, ILevelGenerator
     {
-        [SerializeField]
-        private IntReference _platformCount;
-
         [SerializeField]
         private FloatReference _maxPlatformDistance;
 
@@ -29,6 +16,13 @@ namespace PlatformPuzzle.Gameplay
 
         [SerializeField]
         private List<AngleRangeDirection> _angleRangeDirections;
+
+        [SerializeField]
+        private Transform _platformsParent;
+
+        [Header("Events")]
+        [SerializeField]
+        private UnityEvent _onPlatformCreated;
 
         private readonly List<PlatformMB> _platforms = new List<PlatformMB>();
 
@@ -39,25 +33,32 @@ namespace PlatformPuzzle.Gameplay
             _cachedTransform = transform;
         }
 
-        public void Generate()
+        public LevelData Generate(LevelGeneratorData data)
         {
-            if (!CheckCanGenerate())
+            if (!CheckCanGenerate(data))
             {
-                return;
+                return default;
             }
 
+            GeneratePlatformRec(_cachedTransform.position, data.DifficultyLevel * 2);
+            foreach(PlatformMB platform in _platforms)
+            {
+                platform.Setup();
+            }
+            LevelData levelData = new LevelData(_platforms);
 
-            int remainingPlatformCount = _platformCount.Value;
-            GeneratePlatform(_cachedTransform.position, remainingPlatformCount);
+            return levelData;
         }
 
-        public void GeneratePlatform(
+        public void GeneratePlatformRec(
                 Vector3 position,
                 int remainingPlatformCount,
                 PlatformMB currentPivotPlatform = default)
         {
             GameObject platformGameObject = Instantiate(
-                    _platformPrefab, position, Quaternion.identity);
+                    _platformPrefab, position, Quaternion.identity, _platformsParent);
+
+            _onPlatformCreated?.Invoke();
 
             PlatformMB platform = platformGameObject.GetComponentInChildren<PlatformMB>();
             AttachExistingPlatforms(platform);
@@ -84,7 +85,7 @@ namespace PlatformPuzzle.Gameplay
 
             Vector3 randomSpawnPosition = GetNewSpawnPointFromPlatform(currentPivotPlatform);
 
-            GeneratePlatform(
+            GeneratePlatformRec(
                     randomSpawnPosition,
                     remainingPlatformCount,
                     currentPivotPlatform);
@@ -103,9 +104,9 @@ namespace PlatformPuzzle.Gameplay
 
         private Vector3 GetNewSpawnPointFromPlatform(PlatformMB platform)
         {
-            Direction[] directionsArray = PlatformManager.DirectionsArray;
+            List<Direction> directionsArray = PlatformManager.DirectionsArray;
 
-            for (int i = 0; i < directionsArray.Length; i++)
+            for (int i = 0; i < directionsArray.Count; i++)
             {
                 SnapPoint snapPoint = platform
                     .GetSlotForDirection(directionsArray[i]).SnapPoint;
@@ -138,11 +139,7 @@ namespace PlatformPuzzle.Gameplay
                     continue;
                 }
 
-                Debug.Log($"direction between platform at {platform.Position} and {otherPlatform.Position} = {direction}");
-
                 Direction oppositeDirection = PlatformManager.GetOppositeDirection(direction);
-
-                Debug.Log($"oppositeDirection = {oppositeDirection}");
 
                 SlotData slot = platform.GetSlotForDirection(direction);
                 SlotData otherPlatformSlot = otherPlatform.GetSlotForDirection(oppositeDirection);
@@ -189,13 +186,9 @@ namespace PlatformPuzzle.Gameplay
                 {
                     direction = _angleRangeDirections[i].Direction;
 
-                    Debug.Log(angle + " " + direction);
-
                     return true;
                 }
             }
-
-            Debug.Log("Could not get direction for angle");
 
             return false;
         }
@@ -207,9 +200,9 @@ namespace PlatformPuzzle.Gameplay
             return result;
         }
 
-        private bool CheckCanGenerate()
+        private bool CheckCanGenerate(LevelGeneratorData data)
         {
-            bool result = _platformCount.Value >= 1;
+            bool result = data.DifficultyLevel >= 1;
 
             return result;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace PlatformPuzzle.Gameplay
 {
     [Serializable]
-    internal class DirectionedMatchItem
+    internal class MatchItemWithDirection
     {
         [field: SerializeField]
         public Direction Direction { get; private set; }
@@ -12,15 +12,12 @@ namespace PlatformPuzzle.Gameplay
         [field: SerializeField]
         public MatchItemMB MatchItem { get; private set; }
 
-        public void SetDirection(Direction direction)
+        public MatchItemWithDirection(Direction direction, MatchItemMB matchItem)
         {
             Direction = direction;
-        }
-
-        public void SetMatchItem(MatchItemMB matchItem)
-        {
             MatchItem = matchItem;
         }
     }
 }
+
 

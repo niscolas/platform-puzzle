@@ -18,8 +18,8 @@ namespace PlatformPuzzle.Gameplay
                 {Direction.SouthEast, Direction.NorthWest},
             };
 
-        public static readonly Direction[] DirectionsArray =
-            new Direction[]
+        public static readonly List<Direction> DirectionsArray =
+            new List<Direction>
         {
             Direction.North,
             Direction.NorthEast,
@@ -45,9 +45,8 @@ namespace PlatformPuzzle.Gameplay
 
         public static Direction GetDirectionWithDelta(Direction direction, int delta)
         {
-            Array directions = Enum.GetValues(typeof(Direction));
-            int directionCount = directions.Length;
-            int directionIndex = Array.IndexOf(directions, direction);
+            int directionCount = DirectionsArray.Count;
+            int directionIndex = DirectionsArray.IndexOf(direction);
             int newDirectionIndex = directionIndex + delta;
 
             if (newDirectionIndex < 0)
@@ -59,7 +58,7 @@ namespace PlatformPuzzle.Gameplay
                 newDirectionIndex -= directionCount;
             }
 
-            Direction result = (Direction) directions.GetValue(newDirectionIndex);
+            Direction result = DirectionsArray[newDirectionIndex];
 
             return result;
         }

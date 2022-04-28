@@ -20,11 +20,11 @@ namespace PlatformPuzzle.Gameplay.Tests.Editor
             MatchItemMB matchItem1 = MatchItemUtil.CreateMatchItem();
             MatchItemMB matchItem2 = MatchItemUtil.CreateMatchItem();
 
-            SlotData slot1 = new SlotData(direction1, default, matchItem1);
-            SlotData slot2 = new SlotData(direction2, default, matchItem2);
+            MatchItemWithDirection slot1 = new MatchItemWithDirection(direction1, matchItem1);
+            MatchItemWithDirection slot2 = new MatchItemWithDirection(direction2, matchItem2);
 
-            platform.Slots.Add(slot1);
-            platform.Slots.Add(slot2);
+            platform.MatchItemsWithDirection.Add(slot1);
+            platform.MatchItemsWithDirection.Add(slot2);
 
             MatchItemMB oppositeMatchItem = platform.GetOppositeMatchItem(direction1);
             oppositeMatchItem.Should().Be(matchItem2);
