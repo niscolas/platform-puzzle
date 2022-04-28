@@ -15,14 +15,19 @@ namespace PlatformPuzzle.Gameplay
         public List<PlatformMB> NotSnappedPlatforms { get; private set; }
             = new List<PlatformMB>();
 
-        private PlatformManager _manager;
+        public Vector3 Position => transform.position;
 
         public void Setup(
-            PlatformManager manager,
             IEnumerable<PlatformMB> notSnappedPlatforms)
         {
-            _manager = manager;
             NotSnappedPlatforms = notSnappedPlatforms.ToList();
+        }
+
+        public SlotData GetSlotForDirection(Direction direction)
+        {
+            SlotData result = Slots.FirstOrDefault(x => x.Direction == direction);
+
+            return result;
         }
 
         public bool CompareWithMatchItemOfDirection(
@@ -55,6 +60,15 @@ namespace PlatformPuzzle.Gameplay
             IEnumerable<SnapPoint> result = Slots
                 .Select(x => x.SnapPoint)
                 .Where(x => x.CheckIsAvailable());
+
+            return result;
+        }
+
+        public IEnumerable<PlatformMB> GetAttachedPlatforms()
+        {
+            IEnumerable<PlatformMB> result = Slots
+                .Where(x => x.SnapPoint.Platform)
+                .Select(x => x.SnapPoint.Platform);
 
             return result;
         }
