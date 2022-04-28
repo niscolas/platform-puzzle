@@ -33,7 +33,7 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          customParameters: -assemblyNames "PlatformPuzzle.Gameplay.Tests.Editor"
 
       - name: 🛠 Build!
         uses: game-ci/unity-builder@v2
