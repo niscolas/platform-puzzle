@@ -1,0 +1,21 @@
+{
+    "name": "PlatformPuzzle.Gameplay",
+    "rootNamespace": "PlatformPuzzle.Gameplay",
+    "references": [
+        "GUID:29492541a59d04a81b47a7f225e8a22d",
+        "GUID:14165214884ae4a619bfb290f28194a7",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:96c71b57c71bf934b939f6643c34587f",
+        "GUID:ef28a93bce02c8c74ba5c0d74c112541",
+        "GUID:810f54f43f696374fb3b49d45b461274"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

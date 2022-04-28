@@ -1,0 +1,20 @@
+{
+    "name": "PlatformPuzzle.Generation",
+    "rootNamespace": "PlatformPuzzle.Generation",
+    "references": [
+        "GUID:29492541a59d04a81b47a7f225e8a22d",
+        "GUID:14165214884ae4a619bfb290f28194a7",
+        "GUID:b0abcc1e8f5e328438cf2a18ca1deba9",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:ef28a93bce02c8c74ba5c0d74c112541"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
