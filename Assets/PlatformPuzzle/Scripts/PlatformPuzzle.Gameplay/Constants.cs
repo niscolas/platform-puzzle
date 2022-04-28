@@ -4,5 +4,13 @@ using System.Runtime.CompilerServices;
 
 namespace PlatformPuzzle.Gameplay
 {
-    public static class Constants { }
+
+    public static class Constants
+    {
+        public const string CreateAssetMenuPrefix =
+            PlatformPuzzle.Constants.CreateAssetMenuPrefix;
+
+        public const int CreateAssetMenuOrder =
+            PlatformPuzzle.Constants.CreateAssetMenuOrder;
+    }
 }
