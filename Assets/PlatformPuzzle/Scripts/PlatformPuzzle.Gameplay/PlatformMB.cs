@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MiddleMast.GameplayFramework;
@@ -9,12 +8,8 @@ namespace PlatformPuzzle.Gameplay
     internal class PlatformMB : Entity
     {
         [field: SerializeField]
-        public List<SnapPoint> SnapPoints { get; private set; }
-            = new List<SnapPoint>();
-
-        [field: SerializeField]
-        public List<DirectionedMatchItem> MatchItems { get; private set; }
-            = new List<DirectionedMatchItem>();
+        public List<SlotData> Slots { get; private set; }
+            = new List<SlotData>();
 
         [field: SerializeField]
         public List<PlatformMB> NotSnappedPlatforms { get; private set; }
@@ -42,7 +37,7 @@ namespace PlatformPuzzle.Gameplay
         public MatchItemMB GetOppositeMatchItem(Direction direction)
         {
             Direction oppositeDirection = PlatformManager.GetOppositeDirection(direction);
-            MatchItemMB oppositeMatchItem = MatchItems.FirstOrDefault(
+            MatchItemMB oppositeMatchItem = Slots.FirstOrDefault(
                     x => x.Direction == oppositeDirection).MatchItem;
 
             return oppositeMatchItem;
@@ -50,61 +45,48 @@ namespace PlatformPuzzle.Gameplay
 
         public bool CheckHasAvailableSnapPoints()
         {
-            bool result = SnapPoints.Any(x => x.CheckIsAvailable());
+            bool result = Slots.Any(x => x.SnapPoint.CheckIsAvailable());
 
             return result;
         }
 
         public IEnumerable<SnapPoint> GetAvailableSnapPoints()
         {
-            IEnumerable<SnapPoint> result = SnapPoints.Where(x => x.CheckIsAvailable());
+            IEnumerable<SnapPoint> result = Slots
+                .Select(x => x.SnapPoint)
+                .Where(x => x.CheckIsAvailable());
 
             return result;
         }
 
         public void RotateLeft()
         {
-            if (!CheckCanRotate())
-            {
-                return;
-            }
-
-            int lastIndex = SnapPoints.Count - 1;
-
-            Direction currentDirection = SnapPoints[lastIndex].Direction;
-            SnapPoints[lastIndex].SetDirection(SnapPoints[0].Direction);
-
-            for (int i = lastIndex - 1; i >= 0; i++)
-            {
-                Direction nextDirection = SnapPoints[i].Direction;
-                SnapPoints[i].SetDirection(currentDirection);
-                currentDirection = nextDirection;
-            }
+            Rotate(-1);
         }
 
         public void RotateRight()
+        {
+            Rotate(+1);
+        }
+
+        public void Rotate(int delta)
         {
             if (!CheckCanRotate())
             {
                 return;
             }
-
-            int lastIndex = SnapPoints.Count - 1;
-
-            Direction currentDirection = SnapPoints[0].Direction;
-            SnapPoints[0].SetDirection(SnapPoints[lastIndex].Direction);
-
-            for (int i = 1; i < SnapPoints.Count; i++)
+            foreach (SlotData slot in Slots)
             {
-                Direction nextDirection = SnapPoints[i].Direction;
-                SnapPoints[i].SetDirection(currentDirection);
-                currentDirection = nextDirection;
+                Direction newDirection = PlatformManager.GetDirectionWithDelta(
+                        slot.Direction,
+                        delta);
+                slot.SetDirection(newDirection);
             }
         }
 
         private bool CheckCanRotate()
         {
-            bool result = SnapPoints.Count > 1;
+            bool result = Slots.Count > 1;
 
             return result;
         }

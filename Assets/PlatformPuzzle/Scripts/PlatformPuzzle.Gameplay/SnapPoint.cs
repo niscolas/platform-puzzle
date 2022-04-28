@@ -7,9 +7,6 @@ namespace PlatformPuzzle.Gameplay
     internal class SnapPoint
     {
         [field: SerializeField]
-        public Direction Direction { get; private set; }
-
-        [field: SerializeField]
         public PlatformMB Platform { get; private set; }
 
         [field: SerializeField]
@@ -20,11 +17,6 @@ namespace PlatformPuzzle.Gameplay
             bool result = !Platform;
 
             return result;
-        }
-
-        public void SetDirection(Direction direction)
-        {
-            Direction = direction;
         }
 
         public void SetPlatform(PlatformMB platform)

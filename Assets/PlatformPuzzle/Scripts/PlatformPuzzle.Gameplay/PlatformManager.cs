@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MiddleMast.GameplayFramework;
 
@@ -20,6 +21,27 @@ namespace PlatformPuzzle.Gameplay
         public static Direction GetOppositeDirection(Direction direction)
         {
             Direction result = OppositeDirectionMap[direction];
+
+            return result;
+        }
+
+        public static Direction GetDirectionWithDelta(Direction direction, int delta)
+        {
+            Array directions = Enum.GetValues(typeof(Direction));
+            int directionCount = directions.Length;
+            int directionIndex = Array.IndexOf(directions, direction);
+            int newDirectionIndex = directionIndex + delta;
+
+            if (newDirectionIndex < 0)
+            {
+                newDirectionIndex += directionCount;
+            }
+            else if (newDirectionIndex >= directionCount)
+            {
+                newDirectionIndex -= directionCount;
+            }
+
+            Direction result = (Direction) directions.GetValue(newDirectionIndex);
 
             return result;
         }

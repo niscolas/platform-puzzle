@@ -5,7 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "PlatformPuzzle",
-        "PlatformPuzzle.Gameplay"
+        "PlatformPuzzle.Gameplay",
+        "MiddleMast.GameplayFramework"
     ],
     "includePlatforms": [
         "Editor"
@@ -14,7 +15,9 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "nunit.framework.dll"
+        "nunit.framework.dll",
+        "FluentAssertions.dll",
+        "NSubstitute.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
