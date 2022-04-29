@@ -30,6 +30,7 @@ namespace PlatformPuzzle.Gameplay
         public override void Setup()
         {
             SetupComponents();
+            SetupMatchItems();
         }
 
         public void SolveMatches()
@@ -209,6 +210,14 @@ namespace PlatformPuzzle.Gameplay
             bool result = _canRotate.Value && Slots.Count > 1;
 
             return result;
+        }
+
+        private void SetupMatchItems()
+        {
+            foreach(MatchItemMB matchItem in GetMatchItems())
+            {
+                matchItem.Setup();
+            }
         }
     }
 }

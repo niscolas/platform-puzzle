@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5045042, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.65605783, g: 0, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -610,6 +610,8 @@ GameObject:
   - component: {fileID: 673846220}
   - component: {fileID: 673846222}
   - component: {fileID: 673846221}
+  - component: {fileID: 673846223}
+  - component: {fileID: 673846224}
   m_Layer: 0
   m_Name: Listeners
   m_TagString: Untagged
@@ -707,6 +709,88 @@ MonoBehaviour:
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: e91901017146df375ab98bac53807de1, type: 2}
+    _eventInstancer: {fileID: 0}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
+--- !u!114 &673846223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673846219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1731724286}
+        m_TargetAssemblyTypeName: PlatformPuzzle.Gameplay.ProgressSaverComponentMB,
+          PlatformPuzzle.Gameplay
+        m_MethodName: DecrementProgress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 0
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 752401fdd36957fe186f34570638cdbd, type: 2}
+    _eventInstancer: {fileID: 0}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
+--- !u!114 &673846224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673846219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1799289116}
+        m_TargetAssemblyTypeName: PlatformPuzzle.Gameplay.LevelControllerComponentMB,
+          PlatformPuzzle.Gameplay
+        m_MethodName: ReloadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 0
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: b74899f8a1e31e675a79c84c6b2aed3c, type: 2}
     _eventInstancer: {fileID: 0}
     _collection: {fileID: 0}
     _list: {fileID: 0}
@@ -857,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8328996, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.91210127, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -893,6 +977,7 @@ GameObject:
   - component: {fileID: 792456739}
   - component: {fileID: 792456741}
   - component: {fileID: 792456740}
+  - component: {fileID: 792456742}
   m_Layer: 5
   m_Name: LevelText
   m_TagString: Untagged
@@ -1017,6 +1102,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792456738}
   m_CullTransparentMesh: 1
+--- !u!114 &792456742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792456738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad247eee847b39eaea9e1c1dff424639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 792456740}
+  _currentLevelNumberChangedEvent:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 07fd3d9da60025fd1a99423182067642, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 11400000, guid: 2fcc1408b1be424859673d12e955e5ca, type: 2}
+    _variableInstancer: {fileID: 0}
+  _replayEventBuffer: 1
 --- !u!1 &816246664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 845124579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b74899f8a1e31e675a79c84c6b2aed3c, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &845124579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1341,7 +1458,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 859582073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b74899f8a1e31e675a79c84c6b2aed3c, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &859582073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,8 +1683,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0.4923968, b: 0.754717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1596,7 +1725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.31135735, y: 0.010399243, z: -0.0034074702, w: 0.95022994}
-  m_LocalPosition: {x: 0, y: 6.24, z: -10}
+  m_LocalPosition: {x: 0.01374996, y: 8.23, z: -7.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1736,7 +1865,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 966527157}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 752401fdd36957fe186f34570638cdbd, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: b74899f8a1e31e675a79c84c6b2aed3c, type: 2}
+        m_TargetAssemblyTypeName: UnityAtoms.BaseAtoms.VoidEvent, UnityAtoms.UnityAtomsBaseAtoms.Runtime
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &966527157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,7 +2088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168222876}
   m_LocalRotation: {x: 0.31135735, y: 0.010399243, z: -0.0034074702, w: 0.95022994}
-  m_LocalPosition: {x: 0, y: 6.24, z: -10}
+  m_LocalPosition: {x: 0.01374996, y: 8.23, z: -7.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2338,8 +2491,8 @@ GameObject:
   - component: {fileID: 1731724280}
   - component: {fileID: 1731724281}
   - component: {fileID: 1731724282}
-  - component: {fileID: 1731724283}
   - component: {fileID: 1731724285}
+  - component: {fileID: 1731724286}
   m_Layer: 0
   m_Name: LevelGenerator
   m_TagString: Untagged
@@ -2424,24 +2577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationDeltaRange: {x: -1, y: 1}
---- !u!114 &1731724283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731724279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa2b947cc7cdf4c6a93b5c331cceb4d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentLevelNumber:
-    _usage: 2
-    _value: 0
-    _constant: {fileID: 0}
-    _variable: {fileID: 11400000, guid: 2fcc1408b1be424859673d12e955e5ca, type: 2}
-    _variableInstancer: {fileID: 0}
 --- !u!114 &1731724285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,6 +2601,24 @@ MonoBehaviour:
     _value: 1
     _constant: {fileID: 0}
     _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+--- !u!114 &1731724286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731724279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2b947cc7cdf4c6a93b5c331cceb4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentLevelNumber:
+    _usage: 2
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 11400000, guid: 2fcc1408b1be424859673d12e955e5ca, type: 2}
     _variableInstancer: {fileID: 0}
 --- !u!1 &1792087677
 GameObject:
@@ -2525,6 +2678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1799289114}
   - component: {fileID: 1799289115}
+  - component: {fileID: 1799289116}
   m_Layer: 0
   m_Name: GameplaySystem
   m_TagString: Untagged
@@ -2568,6 +2722,18 @@ MonoBehaviour:
   _onLost:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 792456738}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1912110180}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2583,6 +2749,44 @@ MonoBehaviour:
   _onWinned:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 792456738}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1731724286}
+        m_TargetAssemblyTypeName: PlatformPuzzle.Gameplay.ProgressSaverComponentMB,
+          PlatformPuzzle.Gameplay
+        m_MethodName: IncrementProgress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1731724286}
+        m_TargetAssemblyTypeName: PlatformPuzzle.Gameplay.ProgressSaverComponentMB,
+          PlatformPuzzle.Gameplay
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 849710464}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2595,6 +2799,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1799289116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799289113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd551474c838b5470be9f0aa2941ef81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1878074393
 GameObject:
   m_ObjectHideFlags: 3
@@ -2642,7 +2858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 6.24, z: -10}
+  m_FollowOffset: {x: 0.01374996, y: 8.23, z: -7.02}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1

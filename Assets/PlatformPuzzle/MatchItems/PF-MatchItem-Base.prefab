@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4647901253049973494}
   - component: {fileID: 2235539638541883841}
+  - component: {fileID: 4740257460331927111}
   m_Layer: 0
   m_Name: PF-MatchItem-Base
   m_TagString: Untagged
@@ -130,3 +131,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: {fileID: 0}
   <IsEnabled>k__BackingField: 1
+  _onMatch:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4740257460331927111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681927207908418815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f11e6527427484519237382a2974ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveOffset:
+    _usage: 0
+    _value: {x: 0, y: -40, z: 0}
+    _constant: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+  _moveDuration:
+    _usage: 0
+    _value: 2
+    _constant: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+  _moveEase: 8
